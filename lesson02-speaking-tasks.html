@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 02 · Speaking Tasks · help.debs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ground:#D8DDD0;
+    --ground-deep:#C5CCB8;
+    --card:#F8F7F2;
+    --ink:#1C211A;
+    --mute:#6D7566;
+    --petrol:#16505F;
+    --petrol-soft:#DCE6E8;
+    --red:#B93E2E;
+    --line:rgba(28,33,26,.16);
+    --display:"Bricolage Grotesque",system-ui,sans-serif;
+    --body:"Source Serif 4",Georgia,serif;
+    --mono:"IBM Plex Mono",ui-monospace,monospace;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    background:var(--ground);
+    color:var(--ink);
+    font-family:var(--body);
+    font-size:17px;
+    line-height:1.55;
+    padding-bottom:86px;
+  }
+  .wrap{max-width:70rem;margin:0 auto;padding:0 clamp(18px,4vw,48px)}
+
+  .eyebrow{
+    font-family:var(--mono);font-size:11px;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--mute);margin:0;
+  }
+
+  /* ---------- hero ---------- */
+  header{padding:clamp(38px,7vw,80px) 0 clamp(30px,5vw,54px)}
+  h1{
+    font-family:var(--display);font-weight:800;
+    font-size:clamp(46px,11vw,116px);line-height:.88;
+    letter-spacing:-.035em;margin:.28em 0 0;max-width:14ch;
+  }
+  h1 em{font-style:normal;color:var(--petrol)}
+  .lede{
+    font-size:clamp(17px,2vw,21px);max-width:46ch;margin:1.4em 0 0;color:#33392F;
+  }
+  .lede b{font-weight:600}
+
+  .counter{
+    margin-top:clamp(30px,5vw,46px);
+    border-top:1px solid var(--line);padding-top:18px;
+    display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;
+  }
+  .counter .num{font-family:var(--display);font-weight:800;font-size:clamp(40px,8vw,68px);line-height:1;letter-spacing:-.03em}
+  .counter .den{font-family:var(--display);font-weight:600;font-size:22px;color:var(--mute)}
+  .counter .cap{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--mute);margin-left:auto}
+  .meter{height:3px;background:var(--ground-deep);margin-top:14px;position:relative;overflow:hidden}
+  .meter i{position:absolute;inset:0 auto 0 0;width:0;background:var(--petrol);transition:width .35s ease}
+
+  /* ---------- tasks ---------- */
+  .task{
+    display:grid;grid-template-columns:7.5rem 1fr;gap:clamp(16px,3vw,36px);
+    padding:clamp(28px,4vw,44px) 0;border-top:1px solid var(--line);
+  }
+  .rail{position:sticky;top:26px;align-self:start}
+  .rail .no{
+    font-family:var(--display);font-weight:800;font-size:34px;line-height:1;
+    letter-spacing:-.02em;color:var(--petrol);
+  }
+  .rail .kind{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);margin-top:8px;display:block}
+  h2{font-family:var(--display);font-weight:700;font-size:clamp(27px,4vw,40px);line-height:1.02;letter-spacing:-.02em;margin:0 0 .35em}
+  .brief{max-width:56ch;margin:0 0 1.5em}
+  .brief + .brief{margin-top:-.8em}
+
+  .cue{
+    font-family:var(--mono);font-size:11.5px;line-height:1.7;letter-spacing:.03em;
+    color:var(--mute);border-left:2px solid var(--ground-deep);
+    padding:2px 0 2px 14px;margin:22px 0 0;max-width:52ch;
+  }
+  .cue b{color:var(--ink);font-weight:500}
+
+  /* prompt lists */
+  ol.prompts,ul.plain{list-style:none;margin:0;padding:0}
+  ol.prompts{counter-reset:p}
+  ol.prompts li{
+    counter-increment:p;position:relative;padding:13px 0 13px 46px;
+    border-bottom:1px solid var(--line);max-width:60ch;
+  }
+  ol.prompts li::before{
+    content:counter(p,decimal-leading-zero);position:absolute;left:0;top:15px;
+    font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--petrol);
+  }
+  .fam{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin-top:5px}
+
+  /* repair table */
+  .repair{border-top:1px solid var(--line)}
+  .repair .row{
+    display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;
+    padding:14px 0;border-bottom:1px solid var(--line);
+  }
+  .wrongline{font-size:18px;color:var(--red);font-style:italic}
+  .why{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);text-align:right}
+
+  /* deck */
+  .deck{
+    background:var(--card);border:1px solid var(--line);
+    padding:clamp(22px,4vw,34px);max-width:44rem;
+  }
+  .deck .meta{display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--mute)}
+  .deck .situation{
+    font-family:var(--display);font-weight:600;font-size:clamp(21px,3.2vw,30px);
+    line-height:1.18;letter-spacing:-.015em;margin:18px 0 0;min-height:3.1em;
+  }
+  .deck .reveal{
+    margin-top:16px;padding-top:14px;border-top:1px solid var(--line);
+    font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--petrol);
+    visibility:hidden;
+  }
+  .deck .reveal.on{visibility:visible}
+  .controls{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+
+  button{
+    font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+    background:var(--ink);color:var(--card);border:1px solid var(--ink);
+    padding:11px 17px;cursor:pointer;transition:background .15s ease,color .15s ease;
+  }
+  button.ghost{background:transparent;color:var(--ink)}
+  button:hover{background:var(--petrol);border-color:var(--petrol);color:var(--card)}
+  button:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+  button[disabled]{opacity:.35;cursor:not-allowed}
+
+  /* timer */
+  .timer{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:24px}
+  .clock{font-family:var(--display);font-weight:800;font-size:46px;letter-spacing:-.03em;line-height:1;min-width:3.4ch}
+  .clock.running{color:var(--petrol)}
+  .clock.done{color:var(--red)}
+
+  /* role-play */
+  .scene{border-top:1px solid var(--line);padding:18px 0;max-width:60ch}
+  .roles{display:flex;gap:22px;flex-wrap:wrap;font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--mute);margin-bottom:8px}
+  .roles span b{color:var(--ink);font-weight:500}
+  .scene h3{font-family:var(--display);font-weight:600;font-size:21px;letter-spacing:-.01em;margin:0 0 .3em}
+  .move{margin-top:10px;font-family:var(--mono);font-size:11.5px;line-height:1.65;color:var(--petrol);letter-spacing:.03em}
+
+  /* say it about you */
+  .selflines li{padding:12px 0;border-bottom:1px solid var(--line);font-size:19px;max-width:52ch}
+  .blank{display:inline-block;min-width:8ch;border-bottom:1px solid var(--petrol);}
+
+  footer{border-top:1px solid var(--line);padding:34px 0 60px;font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--mute);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+  /* ---------- tally tray ---------- */
+  .tray{
+    position:fixed;left:0;right:0;bottom:0;z-index:20;
+    background:var(--ground-deep);border-top:1px solid var(--ink);
+  }
+  .tray .bar{
+    max-width:70rem;margin:0 auto;padding:12px clamp(18px,4vw,48px);
+    display:flex;align-items:center;gap:14px;
+  }
+  .tray .bar strong{font-family:var(--display);font-weight:800;font-size:19px;letter-spacing:-.01em}
+  .tray .bar .lab{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:#4E5548}
+  .tray .bar .push{margin-left:auto;display:flex;gap:8px}
+  .tray .bar button{padding:8px 13px;font-size:10px}
+  .panel{
+    max-height:0;overflow:hidden;transition:max-height .3s ease;
+    background:var(--ground-deep);border-top:0 solid var(--line);
+  }
+  .panel.open{max-height:min(58vh,520px);overflow-y:auto;border-top-width:1px}
+  .panel .inner{max-width:70rem;margin:0 auto;padding:20px clamp(18px,4vw,48px) 26px;display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+  .group h4{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#4E5548;margin:0 0 9px;font-weight:400}
+  .chip{
+    display:block;width:100%;text-align:left;text-transform:none;letter-spacing:0;
+    font-family:var(--body);font-size:14px;padding:5px 9px;margin-bottom:4px;
+    background:transparent;border:1px solid rgba(28,33,26,.22);color:var(--ink);
+  }
+  .chip:hover{background:rgba(22,80,95,.12);border-color:var(--petrol);color:var(--ink)}
+  .chip.said{background:var(--petrol);border-color:var(--petrol);color:var(--card);text-decoration:line-through}
+
+  @media (max-width:720px){
+    .task{grid-template-columns:1fr;gap:10px}
+    .rail{position:static;display:flex;align-items:baseline;gap:12px}
+    .rail .kind{margin-top:0}
+    .repair .row{grid-template-columns:1fr;gap:4px}
+    .why{text-align:left}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition:none!important;animation:none!important}
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">help.debs · lesson 02 · speaking tasks</p>
+  <h1>Nothing here is written. <em>Say it.</em></h1>
+  <p class="lede">Six families, thirty-six expressions, and not a single gap to fill in. Every task on this page is answered <b>out loud</b>, in a full sentence, about your own life. Tick an expression below the moment it actually leaves your mouth.</p>
+  <div class="counter">
+    <span class="num" id="count">0</span><span class="den">/ 36</span>
+    <span class="cap">said out loud today</span>
+  </div>
+  <div class="meter"><i id="meter"></i></div>
+</header>
+
+<!-- 01 -->
+<section class="task">
+  <div class="rail"><span class="no">01</span><span class="kind">warm-up · 6 min</span></div>
+  <div>
+    <h2>Sixty seconds each</h2>
+    <p class="brief">One question per family. Sixty seconds of talking, no notes, no restarting. If you finish early, keep going until the clock does.</p>
+    <ol class="prompts">
+      <li>Who are you still meaning to follow up with — and what's stopping you?<span class="fam">family 01</span></li>
+      <li>What are you completely out of the loop on at the moment?<span class="fam">family 02</span></li>
+      <li>Tell me about the last time your mind went blank in front of someone.<span class="fam">family 03</span></li>
+      <li>What are you still trying to figure out this week?<span class="fam">family 04</span></li>
+      <li>What did you let slide recently when you had every right to react?<span class="fam">family 05</span></li>
+      <li>Who in your life takes everything in stride? Prove it with a story.<span class="fam">family 06</span></li>
+    </ol>
+    <div class="timer">
+      <span class="clock" id="clock">1:00</span>
+      <button id="tStart">Start</button>
+      <button class="ghost" id="tReset">Reset</button>
+      <button class="ghost" data-set="60">60 sec</button>
+      <button class="ghost" data-set="180">3 min</button>
+    </div>
+    <p class="cue"><b>If she stalls:</b> don't supply the expression. Ask a smaller question inside the same story — <i>who was in the room? what did you say first?</i> — and let her arrive at it.</p>
+  </div>
+</section>
+
+<!-- 02 -->
+<section class="task">
+  <div class="rail"><span class="no">02</span><span class="kind">repair · 7 min</span></div>
+  <div>
+    <h2>Wrong on purpose</h2>
+    <p class="brief">These sentences are read out to you one at a time. Say the English version out loud, then say <em>why</em> the original doesn't work. The second half is the part that matters.</p>
+    <div class="repair">
+      <div class="row"><span class="wrongline">"I charged him about the report."</span><span class="why">money only</span></div>
+      <div class="row"><span class="wrongline">"I'm outside of this subject."</span><span class="why">invented</span></div>
+      <div class="row"><span class="wrongline">"My mind went white."</span><span class="why">the colour</span></div>
+      <div class="row"><span class="wrongline">"We'll manage to solve it somehow."</span><span class="why">nobody says it</span></div>
+      <div class="row"><span class="wrongline">"Forget about this."</span><span class="why">an order</span></div>
+      <div class="row"><span class="wrongline">"She didn't take it seriously."</span><span class="why">careless, not calm</span></div>
+      <div class="row"><span class="wrongline">"I'm out of the loop about this project."</span><span class="why">preposition</span></div>
+      <div class="row"><span class="wrongline">"She took it with stride."</span><span class="why">preposition</span></div>
+      <div class="row"><span class="wrongline">"I'll follow up the invoice tomorrow."</span><span class="why">with / on</span></div>
+      <div class="row"><span class="wrongline">"Work out it before Friday."</span><span class="why">pronoun position</span></div>
+    </div>
+    <p class="cue"><b>Rule for this task:</b> a correct repair with no explanation counts as half. She has to name what the wrong version was actually saying.</p>
+  </div>
+</section>
+
+<!-- 03 -->
+<section class="task">
+  <div class="rail"><span class="no">03</span><span class="kind">the deck · 12 min</span></div>
+  <div>
+    <h2>Draw a situation</h2>
+    <p class="brief">Sixteen cards. Draw one, and answer it in two or three sentences — as the person in it, not as someone describing it. Speak first, then check which family it came from.</p>
+    <div class="deck">
+      <div class="meta"><span id="deckPos">card — · —</span><span>respond out loud</span></div>
+      <p class="situation" id="situation">Press draw to turn the first card.</p>
+      <p class="reveal" id="reveal"></p>
+      <div class="controls">
+        <button id="draw">Draw a card</button>
+        <button class="ghost" id="show">Show the family</button>
+        <button class="ghost" id="shuffle">Reshuffle</button>
+      </div>
+    </div>
+    <p class="cue"><b>Harder version, second time round:</b> same card, but the answer has to contain a reason. <i>I chased him up because…</i> Reasons are where the fluency actually shows.</p>
+  </div>
+</section>
+
+<!-- 04 -->
+<section class="task">
+  <div class="rail"><span class="no">04</span><span class="kind">role-play · 15 min</span></div>
+  <div>
+    <h2>Two voices</h2>
+    <p class="brief">Four conversations, played through properly — you take A, I take B. Each one has a move you have to make inside it. Nobody stops to check whether it was right until the scene is over.</p>
+
+    <div class="scene">
+      <div class="roles"><span><b>A</b> freelancer, three weeks unpaid</span><span><b>B</b> the client who keeps saying next week</span></div>
+      <h3>The invoice</h3>
+      <p class="brief">You've already sent one polite message. Nothing. Now you're on a call with him.</p>
+      <p class="move">Move: start neutral and end impatient — <i>follow up on</i> at the beginning, <i>chase up</i> by the end, in the same conversation.</p>
+    </div>
+
+    <div class="scene">
+      <div class="roles"><span><b>A</b> back from two weeks away</span><span><b>B</b> the colleague who ran everything</span></div>
+      <h3>The handover</h3>
+      <p class="brief">Three decisions were made while you were gone and you've heard about none of them.</p>
+      <p class="move">Move: fix the past, then protect the future — ask to be brought up to speed, and don't end the call without asking to be kept in the loop.</p>
+    </div>
+
+    <div class="scene">
+      <div class="roles"><span><b>A</b> you</span><span><b>B</b> the colleague who booked the same week</span></div>
+      <h3>The double booking</h3>
+      <p class="brief">You both asked for the last week of December. One of you has to move.</p>
+      <p class="move">Move: land on an agreement where neither of you walks away losing. Don't say the word <i>problem</i> once.</p>
+    </div>
+
+    <div class="scene">
+      <div class="roles"><span><b>A</b> you</span><span><b>B</b> the one who keeps bringing up March</span></div>
+      <h3>The same argument, twice</h3>
+      <p class="brief">Play the scene once at home with your brother, then again at work with a colleague. Same content, same goal.</p>
+      <p class="move">Move: close the topic both times. Notice what <i>drop it</i> costs you at work, and what <i>let's leave it there</i> sounds like at home.</p>
+    </div>
+
+    <p class="cue"><b>Do not correct mid-scene.</b> Note what came out, finish the conversation, then replay the thirty seconds that went wrong.</p>
+  </div>
+</section>
+
+<!-- 05 -->
+<section class="task">
+  <div class="rail"><span class="no">05</span><span class="kind">free · 8 min</span></div>
+  <div>
+    <h2>Three minutes, five expressions</h2>
+    <p class="brief">Tell me about a week at work that went wrong — a real one. Three minutes, no stopping. Five expressions from this lesson have to land inside the story.</p>
+    <p class="brief">The condition: they have to belong to the sentence. Anything that sounds inserted doesn't count, and I'll tell you which one it was.</p>
+    <div class="timer">
+      <span class="clock" id="clock2">3:00</span>
+      <button id="tStart2">Start</button>
+      <button class="ghost" id="tReset2">Reset</button>
+    </div>
+    <p class="cue"><b>Tick as they land,</b> not afterwards. Five chips lit at the end of the story is the pass mark; four naturals beat six forced.</p>
+  </div>
+</section>
+
+<!-- 06 -->
+<section class="task">
+  <div class="rail"><span class="no">06</span><span class="kind">close · 5 min</span></div>
+  <div>
+    <h2>Say it about you</h2>
+    <p class="brief">Six lines, finished out loud with something true. No writing — the point is that it comes out at speaking speed.</p>
+    <ul class="plain selflines">
+      <li>I've been meaning to follow up with <span class="blank"></span>.</li>
+      <li>I'm a bit out of the loop on <span class="blank"></span>.</li>
+      <li>My mind went blank when <span class="blank"></span>.</li>
+      <li>I'm still trying to figure out <span class="blank"></span>.</li>
+      <li>I let it slide because <span class="blank"></span>.</li>
+      <li><span class="blank"></span> takes everything in stride.</li>
+    </ul>
+    <p class="cue"><b>Before next class:</b> pick one expression — one — and use it on purpose in real life. Text it, say it, put it in an email. Then tell me where it landed.</p>
+  </div>
+</section>
+
+<footer>
+  <span>help.debs · teacher débora</span>
+  <span>lesson 02 · what's the difference?</span>
+</footer>
+
+</div>
+
+<!-- tally tray -->
+<div class="tray">
+  <div class="bar">
+    <strong id="trayCount">0</strong><span class="lab">of 36 said out loud</span>
+    <span class="push">
+      <button class="ghost" id="toggleTray" aria-expanded="false" aria-controls="panel">Open the tally</button>
+      <button class="ghost" id="resetTray">Reset</button>
+    </span>
+  </div>
+  <div class="panel" id="panel"><div class="inner" id="chips"></div></div>
+</div>
+
+<script>
+(function(){
+  const families = [
+    {name:"01 · follow up", items:["follow up with someone","follow up on something","chase someone up","circle back","give someone a nudge","get back to someone"]},
+    {name:"02 · the loop", items:["be out of the loop","keep me in the loop","bring me up to speed","be up to speed on","be left out","nobody told me"]},
+    {name:"03 · blank", items:["my mind went blank","I completely blanked","I drew a blank on","it slipped my mind","on the tip of my tongue","I froze"]},
+    {name:"04 · work it out", items:["work something out","figure it out","sort it out","we'll make it work","deal with it","work out (no object)"]},
+    {name:"05 · let it go", items:["let it go","drop it","let it slide","it's not worth it","let's leave it there","hold a grudge"]},
+    {name:"06 · in stride", items:["take it in stride","take it in your stride","roll with it","take it well","laugh it off","shrug it off"]}
+  ];
+
+  const chipsEl = document.getElementById('chips');
+  families.forEach(f=>{
+    const g = document.createElement('div');
+    g.className = 'group';
+    const h = document.createElement('h4');
+    h.textContent = f.name;
+    g.appendChild(h);
+    f.items.forEach(t=>{
+      const b = document.createElement('button');
+      b.className = 'chip';
+      b.type = 'button';
+      b.textContent = t;
+      b.setAttribute('aria-pressed','false');
+      b.addEventListener('click',()=>{
+        const on = b.classList.toggle('said');
+        b.setAttribute('aria-pressed', on ? 'true' : 'false');
+        tally();
+      });
+      g.appendChild(b);
+    });
+    chipsEl.appendChild(g);
+  });
+
+  const countEl = document.getElementById('count');
+  const trayCountEl = document.getElementById('trayCount');
+  const meterEl = document.getElementById('meter');
+  function tally(){
+    const n = chipsEl.querySelectorAll('.chip.said').length;
+    countEl.textContent = n;
+    trayCountEl.textContent = n;
+    meterEl.style.width = (n/36*100) + '%';
+  }
+
+  const panel = document.getElementById('panel');
+  const toggle = document.getElementById('toggleTray');
+  toggle.addEventListener('click',()=>{
+    const open = panel.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open ? 'true':'false');
+    toggle.textContent = open ? 'Close the tally' : 'Open the tally';
+  });
+  document.getElementById('resetTray').addEventListener('click',()=>{
+    chipsEl.querySelectorAll('.chip.said').forEach(c=>{c.classList.remove('said');c.setAttribute('aria-pressed','false');});
+    tally();
+  });
+
+  /* ---- deck ---- */
+  const cards = [
+    {s:"A client asked you for a quote nine days ago and went completely quiet. You need this job. Say what you write to him.", f:"01 — follow up with / give a nudge"},
+    {s:"Same client, three messages later. You're not being polite about it any more. Say it to a friend.", f:"01 — chase him up"},
+    {s:"The meeting ran out of time and the budget question is still sitting there untouched.", f:"01 — circle back to it"},
+    {s:"You join a project in week three. Everyone else started in May. Say your first sentence in the meeting.", f:"02 — out of the loop / bring me up to speed"},
+    {s:"Decisions about your own timetable keep reaching you secondhand. Ask your manager for what you want.", f:"02 — keep me in the loop"},
+    {s:"They organised the team dinner and your name wasn't on the list. Tell someone how it felt.", f:"02 — left out"},
+    {s:"The interviewer asks about your biggest weakness and nothing comes. Tell a friend what happened afterwards.", f:"03 — I completely blanked / I froze"},
+    {s:"You promised to send the photos on Tuesday. It's Friday and she's just asked again.", f:"03 — it slipped my mind"},
+    {s:"You know the actor. You know the film. You're mid-sentence and the name won't come. Keep talking anyway.", f:"03 — on the tip of my tongue"},
+    {s:"There's a charge on your card that shouldn't be there. Tell me your plan for Monday.", f:"04 — sort it out"},
+    {s:"The instructions make no sense and there's nobody left in the office to ask.", f:"04 — figure it out"},
+    {s:"Half the budget has gone and the event is in two weeks. Say something to your team.", f:"04 — we'll make it work"},
+    {s:"Your sister brings up the same argument from March for the third time this month.", f:"05 — drop it / let it go"},
+    {s:"You're chairing a meeting that's going in circles and someone senior is enjoying it.", f:"05 — let's leave it there"},
+    {s:"Her flight is cancelled two hours before boarding and she's already booking the next one. Describe her.", f:"06 — took it in stride"},
+    {s:"Someone else got the promotion your friend wanted. He's been quiet for days. Describe him.", f:"06 — he didn't take it well"}
+  ];
+  let order = [], idx = -1;
+  const sitEl = document.getElementById('situation');
+  const revEl = document.getElementById('reveal');
+  const posEl = document.getElementById('deckPos');
+  const drawBtn = document.getElementById('draw');
+
+  function shuffle(){
+    order = cards.map((c,i)=>i);
+    for(let i=order.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[order[i],order[j]]=[order[j],order[i]];}
+    idx = -1;
+    sitEl.textContent = "Press draw to turn the first card.";
+    revEl.classList.remove('on'); revEl.textContent = "";
+    posEl.textContent = "card — · —";
+    drawBtn.disabled = false;
+    drawBtn.textContent = "Draw a card";
+  }
+  drawBtn.addEventListener('click',()=>{
+    if(idx >= order.length-1) return;
+    idx++;
+    const c = cards[order[idx]];
+    sitEl.textContent = c.s;
+    revEl.textContent = c.f;
+    revEl.classList.remove('on');
+    posEl.textContent = "card " + String(idx+1).padStart(2,'0') + " · " + cards.length;
+    if(idx === order.length-1){ drawBtn.disabled = true; drawBtn.textContent = "Deck finished"; }
+  });
+  document.getElementById('show').addEventListener('click',()=>{ if(idx>=0) revEl.classList.add('on'); });
+  document.getElementById('shuffle').addEventListener('click',shuffle);
+  shuffle();
+
+  /* ---- timers ---- */
+  function makeTimer(clockId, startId, resetId, seconds){
+    const clock = document.getElementById(clockId);
+    const startB = document.getElementById(startId);
+    const resetB = document.getElementById(resetId);
+    let total = seconds, left = seconds, tick = null;
+    function paint(){
+      const m = Math.floor(left/60), s = left%60;
+      clock.textContent = m + ":" + String(s).padStart(2,'0');
+    }
+    function stop(){ clearInterval(tick); tick=null; startB.textContent="Start"; clock.classList.remove('running'); }
+    startB.addEventListener('click',()=>{
+      if(tick){ stop(); return; }
+      if(left<=0) left = total;
+      clock.classList.remove('done'); clock.classList.add('running');
+      startB.textContent = "Pause";
+      tick = setInterval(()=>{
+        left--; paint();
+        if(left<=0){ stop(); clock.classList.add('done'); }
+      },1000);
+    });
+    resetB.addEventListener('click',()=>{ stop(); clock.classList.remove('done'); left = total; paint(); });
+    paint();
+    return { set(v){ stop(); clock.classList.remove('done'); total=v; left=v; paint(); } };
+  }
+  const t1 = makeTimer('clock','tStart','tReset',60);
+  makeTimer('clock2','tStart2','tReset2',180);
+  document.querySelectorAll('[data-set]').forEach(b=>{
+    b.addEventListener('click',()=> t1.set(parseInt(b.dataset.set,10)));
+  });
+})();
+</script>
+</body>
+</html>
